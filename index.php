@@ -1,5 +1,3 @@
-!doctype html
-<body>
 <?php
 require_once 'includes/header.php';
 $page_title = "Home";
@@ -155,5 +153,4 @@ function downloadResultsPDF() {
 }
 </script>
 
-<?php require_once 'includes/footer.php'; ?>
-    </body>
+<?php require_once 'includes/footer.php
