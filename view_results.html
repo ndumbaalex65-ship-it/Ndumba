@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Results - {{ pupil.name }} ({{ pupil.class_name }})</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>CA</th>
+            <th>Exam</th>
+            <th>Total</th>
+            <th>Comment</th>
+            <th>Term/Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in results %}
+        <tr>
+            <td>{{ (Subject.query.get(r.subject_id).name) if Subject.query.get(r.subject_id) else 'Unknown' }}</td>
+            <td>{{ r.continuous_assessment }}</td>
+            <td>{{ r.exam_score }}</td>
+            <td>{{ r.total }}</td>
+            <td>{{ r.comment or 'No comment' }}</td>
+            <td>{{ r.term }} {{ r.year }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% if not results %}
+<p>No results available yet.</p>
+{% endif %}
+{% endblock %}

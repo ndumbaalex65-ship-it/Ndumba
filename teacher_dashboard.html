@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Teacher Dashboard</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Enter Results</h5>
+                <a href="{{ url_for('enter_results') }}" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Search Pupils</h5>
+                <a href="{{ url_for('search') }}" class="btn btn-info">Search</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Announcements</h5>
+                <a href="{{ url_for('announcements') }}" class="btn btn-warning">View</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ pupil.name if pupil else 'Pupil' }}</h2>
+<div class="card">
+    <div class="card-body">
+        <a href="{{ url_for('view_results') }}" class="btn btn-success btn-lg">View My Results</a>
+        {% if pupil %}
+        <a href="{{ url_for('generate_report', pupil_id=pupil.id) }}" class="btn btn-primary btn-lg ms-3">Download Report Card (PDF)</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

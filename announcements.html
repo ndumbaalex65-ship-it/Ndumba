@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>School Announcements</h2>
+{% if current_user.is_authenticated and current_user.role == 'admin' %}
+<form method="POST" action="{{ url_for('add_announcement') }}" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="message" class="form-control" placeholder="New announcement" required>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
+{% endif %}
+<ul class="list-group">
+    {% for ann in announcements %}
+    <li class="list-group-item"><strong>{{ ann.date.strftime('%Y-%m-%d') }}:</strong> {{ ann.message }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

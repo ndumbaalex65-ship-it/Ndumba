@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center my-5">
+    <h1 class="display-4">Welcome to Mangana Primary/Secondary School Results Portal</h1>
+    <p class="lead">Secure access to pupil results, report cards, and school announcements.</p>
+    {% if not current_user.is_authenticated %}
+    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg">Login</a>
+    {% endif %}
+</div>
+{% if announcements %}
+<h3>Latest Announcements</h3>
+<ul class="list-group">
+    {% for ann in announcements %}
+    <li class="list-group-item">{{ ann.message }} <small class="text-muted">{{ ann.date.strftime('%Y-%m-%d') }}</small></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

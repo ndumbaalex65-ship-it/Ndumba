@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Register New User (Admin Only)</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Role</label>
+        <select name="role" class="form-control">
+            <option value="teacher">Teacher</option>
+            <option value="pupil">Pupil</option>
+            <option value="admin">Admin</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Email (optional)</label>
+        <input type="email" name="email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Phone (optional)</label>
+        <input type="text" name="phone" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% endblock %}
